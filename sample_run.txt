@@ -1,0 +1,60 @@
+
+PHASE 2A: PARCELS SORTED BY DEADLINE / PRIORITY
+-----------------------------------------------
+ID      Destination       Weight   Value  Deadline  Priority
+P106    B                      4      85         1         5
+P102    B                      5     100         1         4
+P101    A                      4      90         2         5
+P104    D                      7     150         2         5
+P108    C                      2      55         2         3
+P103    C                      3      70         3         3
+P105    E                      2      40         4         2
+P107    F                      6     120         5         4
+
+PHASE 2B: OPTIMAL PARCELS SELECTED FOR THE TRIP
+-----------------------------------------------
+ID      Destination       Weight   Value  Deadline  Priority
+P106    B                      4      85         1         5
+P101    A                      4      90         2         5
+P108    C                      2      55         2         3
+P103    C                      3      70         3         3
+P105    E                      2      40         4         2
+
+Vehicle capacity : 15
+Selected weight  : 15
+Unused capacity  : 0
+Total parcel value: 340
+
+PHASE 3A: DELIVERY ROUTE (NEAREST-NEIGHBOUR TSP)
+Depot -> A -> B -> C -> E -> Depot
+Total route distance: 20.00 distance units
+
+PHASE 3B: DIJKSTRA SHORTEST-PATH DETAILS
+Depot -> B: Depot -> B (distance = 6.00)
+Depot -> A: Depot -> A (distance = 4.00)
+Depot -> C: Depot -> C (distance = 7.00)
+Depot -> E: Depot -> C -> E (distance = 9.00)
+
+PHASE 4: RUNTIME SUMMARY
+Algorithm                        Runtime (seconds)
+--------------------------------------------------
+Merge Sort                              0.00001456
+0/1 Knapsack DP                         0.00002427
+
+Complexity reference:
+Merge Sort: O(n log n) time, O(n) auxiliary space
+0/1 Knapsack: O(nW) time and O(nW) DP-table space
+Dijkstra (binary heap): O((V + E) log V) time
+Nearest Neighbour TSP: O(k * Dijkstra) in this implementation; heuristic, not guaranteed optimal
+
+ERROR:
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
